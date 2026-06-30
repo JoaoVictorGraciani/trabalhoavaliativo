@@ -1,0 +1,82 @@
+@import "./variables.css";
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    font-family:
+    "Poppins",
+    sans-serif;
+
+    background:
+    radial-gradient(circle at top,
+    #111827,
+    #030712);
+
+    color:var(--text);
+
+    overflow-x:hidden;
+
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+img{
+    display:block;
+    max-width:100%;
+}
+
+button{
+
+    cursor:pointer;
+
+    transition:var(--transition);
+
+}
+
+body.light {
+  background: #f8fafc;
+  color: #0f172a;
+}
+
+body.light .header,
+body.light .footer {
+  background: rgba(255,255,255,.85);
+  color: #0f172a;
+}
+
+body.light nav a {
+  color: #334155;
+}
+
+body.light .movie-card,
+body.light .details-info,
+body.light .cast-card {
+  background: #ffffff;
+  color: #0f172a;
+}
+
+body.light .movie-info h3,
+body.light .details-info h1,
+body.light .details-info h2,
+body.light .cast-section h2 {
+  color: #0f172a;
+}
+
+body.light .home-page,
+body.light .favorites-page,
+body.light .details-page,
+body.light .page {
+  background: #f8fafc;
+}

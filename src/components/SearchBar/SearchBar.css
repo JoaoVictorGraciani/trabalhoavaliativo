@@ -1,0 +1,57 @@
+.search{
+
+width:750px;
+
+margin:-70px auto 80px;
+
+display:flex;
+
+gap:20px;
+
+position:relative;
+
+z-index:20;
+
+}
+
+.search input{
+
+flex:1;
+
+padding:18px 25px;
+
+border:none;
+
+border-radius:60px;
+
+background:#111827;
+
+color:white;
+
+font-size:17px;
+
+}
+
+.search button{
+
+padding:18px 35px;
+
+border:none;
+
+border-radius:60px;
+
+background:#2563eb;
+
+color:white;
+
+font-weight:bold;
+
+transition:.3s;
+
+}
+
+.search button:hover{
+
+transform:scale(1.05);
+
+}

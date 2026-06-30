@@ -1,0 +1,38 @@
+.favorites-page {
+  min-height: 100vh;
+  padding-top: 110px;
+  background: #030712;
+}
+
+.favorites-hero {
+  max-width: 1400px;
+  margin: 0 auto 40px;
+  padding: 50px;
+  border-radius: 28px;
+  background:
+    linear-gradient(135deg, rgba(239,68,68,.25), rgba(37,99,235,.18)),
+    rgba(17,24,39,.75);
+  border: 1px solid rgba(255,255,255,.08);
+}
+
+.favorites-hero h1 {
+  font-size: 3rem;
+  margin-bottom: 15px;
+}
+
+.favorites-hero p {
+  color: #cbd5e1;
+  font-size: 1.1rem;
+}
+
+.empty-favorites {
+  text-align: center;
+  padding: 120px 20px;
+  color: #94a3b8;
+}
+
+.empty-favorites h2 {
+  color: white;
+  font-size: 2rem;
+  margin-bottom: 15px;
+}

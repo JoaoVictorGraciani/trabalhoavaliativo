@@ -1,0 +1,13 @@
+.carousel{
+
+display:flex;
+
+gap:25px;
+
+overflow:hidden;
+
+cursor:grab;
+
+padding-bottom:20px;
+
+}

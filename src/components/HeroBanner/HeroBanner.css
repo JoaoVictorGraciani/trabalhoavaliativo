@@ -1,0 +1,156 @@
+.hero-banner{
+    height:90vh;
+    background-size:cover;
+    background-position:center;
+    position:relative;
+    display:flex;
+    align-items:center;
+}
+
+.hero-overlay{
+    position:absolute;
+    inset:0;
+    background:linear-gradient(
+        rgba(3,7,18,.25),
+        rgba(3,7,18,.85),
+        #030712
+    );
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+    max-width:700px;
+    padding:80px;
+    color:white;
+}
+
+.hero-content h1{
+    font-size:4rem;
+    margin-bottom:20px;
+}
+
+.hero-rating{
+    display:flex;
+    gap:18px;
+    align-items:center;
+    margin-bottom:25px;
+    color:#FACC15;
+    font-size:1.1rem;
+}
+
+.hero-rating span{
+    color:white;
+}
+
+.hero-content p{
+    line-height:1.8;
+    color:#CBD5E1;
+    margin-bottom:35px;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:20px;
+}
+
+.btn-primary,
+.btn-secondary{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    text-decoration:none;
+
+    padding:16px 30px;
+
+    border-radius:40px;
+
+    transition:.3s;
+
+    font-weight:600;
+
+}
+
+.btn-primary{
+
+    background:#2563EB;
+
+    color:white;
+
+}
+
+.btn-primary:hover{
+
+    background:#1D4ED8;
+
+}
+
+.btn-secondary{
+
+    background:rgba(255,255,255,.12);
+
+    color:white;
+
+}
+
+.btn-secondary:hover{
+
+    background:rgba(255,255,255,.2);
+
+}
+
+.hero-banner {
+  height: 90vh;
+  position: relative;
+  overflow: hidden;
+  background: #030712;
+}
+
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+}
+
+.btn-favorite {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: none;
+  padding: 16px 30px;
+  border-radius: 40px;
+  background: rgba(239, 68, 68, .9);
+  color: white;
+  font-weight: 600;
+}
+
+.btn-favorite:hover {
+  background: #dc2626;
+  transform: translateY(-3px);
+}
+
+.hero-indicators {
+  display: flex;
+  gap: 10px;
+  margin-top: 35px;
+}
+
+.hero-indicators button {
+  width: 34px;
+  height: 5px;
+  border: none;
+  border-radius: 10px;
+  background: rgba(255,255,255,.35);
+}
+
+.hero-indicators button.active {
+  background: #2563eb;
+  width: 52px;
+}

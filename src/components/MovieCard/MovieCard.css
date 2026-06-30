@@ -1,0 +1,227 @@
+.movie-card{
+
+    position:relative;
+
+    overflow:hidden;
+
+    border-radius:20px;
+
+    background:#111827;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.35);
+
+    transition:.35s;
+
+}
+
+.movie-card:hover{
+
+    transform:translateY(-10px);
+
+    box-shadow:0 20px 40px rgba(37,99,235,.35);
+
+}
+
+.movie-card a{
+
+    color:inherit;
+
+    text-decoration:none;
+
+}
+
+.movie-poster{
+
+    width:100%;
+
+    height:380px;
+
+    object-fit:cover;
+
+}
+
+.movie-info{
+
+    padding:18px;
+
+}
+
+.movie-info h3{
+
+    font-size:1.05rem;
+
+    margin-bottom:15px;
+
+    color:white;
+
+    min-height:52px;
+
+}
+
+.movie-meta{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    color:#CBD5E1;
+
+    font-size:.95rem;
+
+}
+
+.movie-meta span{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:6px;
+
+}
+
+.favorite-icon{
+
+    position:absolute;
+
+    top:15px;
+
+    right:15px;
+
+    width:45px;
+
+    height:45px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:rgba(0,0,0,.55);
+
+    backdrop-filter:blur(10px);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:#ffffff;
+
+    cursor:pointer;
+
+    z-index:5;
+
+    transition:.3s;
+
+}
+
+.favorite-icon:hover{
+
+    background:#ef4444;
+
+    color:white;
+
+}
+
+.favorite-icon svg{
+
+    font-size:1.2rem;
+
+}
+
+.movie-card{
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+.movie-card::after{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:
+
+linear-gradient(
+
+transparent,
+
+rgba(0,0,0,.7)
+
+);
+
+opacity:0;
+
+transition:.35s;
+
+}
+
+.movie-card:hover::after{
+
+opacity:1;
+
+}
+
+.movie-card{
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.favorite-icon{
+
+    position:absolute;
+
+    top:15px;
+
+    right:15px;
+
+    z-index:30;
+
+}
+
+.movie-card::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+
+    linear-gradient(
+
+        transparent,
+
+        rgba(0,0,0,.65)
+
+    );
+
+    opacity:0;
+
+    transition:.35s;
+
+}
+
+.movie-card:hover::after{
+
+    opacity:1;
+
+}
+
+.movie-card:hover{
+
+    transform:translateY(-10px);
+
+}

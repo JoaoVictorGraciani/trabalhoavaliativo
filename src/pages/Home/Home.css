@@ -1,0 +1,14 @@
+.home-page {
+  min-height: 100vh;
+  background: #030712;
+}
+
+.search-results {
+  padding: 40px 50px;
+}
+
+.search-results h2 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: white;
+}

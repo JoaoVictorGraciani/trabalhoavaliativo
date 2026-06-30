@@ -1,0 +1,84 @@
+.movie-row {
+  width: 100%;
+  margin: 70px 0;
+  padding: 0 50px;
+}
+
+.movie-row-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.movie-row h2 {
+  font-size: 2rem;
+  color: white;
+}
+
+.row-buttons {
+  display: flex;
+  gap: 12px;
+}
+
+.row-buttons button {
+  width: 42px;
+  height: 42px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255,255,255,.12);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.row-buttons button:hover {
+  background: #2563eb;
+}
+
+.movie-row-list {
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 15px 5px 35px;
+}
+
+.movie-row-list::-webkit-scrollbar {
+  height: 8px;
+}
+
+.movie-row-list::-webkit-scrollbar-track {
+  background: #111827;
+  border-radius: 20px;
+}
+
+.movie-row-list::-webkit-scrollbar-thumb {
+  background: #2563eb;
+  border-radius: 20px;
+}
+
+.row-card {
+  min-width: 250px;
+  max-width: 250px;
+}
+
+@media (max-width: 768px) {
+  .movie-row {
+    padding: 0 20px;
+  }
+
+  .movie-row h2 {
+    font-size: 1.5rem;
+  }
+
+  .row-card {
+    min-width: 210px;
+    max-width: 210px;
+  }
+
+  .row-buttons {
+    display: none;
+  }
+}
