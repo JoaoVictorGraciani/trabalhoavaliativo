@@ -7,13 +7,14 @@ import { FavoritesProvider } from "./context/FavoritesContext";
 import { ThemeProvider } from "./context/ThemeContext";
 
 import "./styles/global.css";
+import { WatchHistoryProvider } from "./context/WatchHistoryContext";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
-    <ThemeProvider>
-      <FavoritesProvider>
-        <App />
-      </FavoritesProvider>
-    </ThemeProvider>
-  </React.StrictMode>
+<ThemeProvider>
+  <FavoritesProvider>
+    <WatchHistoryProvider>
+      <App />
+    </WatchHistoryProvider>
+  </FavoritesProvider>
+</ThemeProvider>
 );

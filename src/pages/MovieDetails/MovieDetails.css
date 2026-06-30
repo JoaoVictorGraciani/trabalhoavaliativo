@@ -40,23 +40,31 @@
 ============================ */
 
 .details-container {
-
-  max-width: 1400px;
-
-  margin: -220px auto 80px;
-
+  max-width: 1280px;
+  margin: -180px auto 80px;
   position: relative;
-
   z-index: 20;
 
-  display: flex;
-
-  gap: 50px;
+  display: grid;
+  grid-template-columns: 330px minmax(0, 1fr);
+  gap: 40px;
 
   align-items: flex-start;
+  padding: 0 32px;
+}
 
-  padding: 0 40px;
+.details-info {
+  max-width: 850px;
+  width: 100%;
+}
 
+.details-info p {
+  max-width: 780px;
+}
+.trailer,
+.cast-section,
+.similar {
+  width: 100%;
 }
 
 /* ============================
@@ -657,3 +665,32 @@
 
 }
 
+.details-error {
+  padding-top: 140px;
+  text-align: center;
+}
+
+.details-error button {
+  margin-top: 25px;
+  padding: 14px 24px;
+  border: none;
+  border-radius: 30px;
+  background: #2563eb;
+  color: white;
+}
+
+.details-sections{
+
+    max-width:1400px;
+
+    margin:70px auto;
+
+    padding:0 40px;
+
+}
+
+.details-sections {
+  max-width: 1400px;
+  margin: 70px auto;
+  padding: 0 40px;
+}

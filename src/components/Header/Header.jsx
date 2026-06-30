@@ -47,6 +47,10 @@ function Header() {
             Séries
           </NavLink>
 
+          <NavLink to="/profile">
+            Perfil
+          </NavLink>
+
           <NavLink to="/dashboard">
            Dashboard
           </NavLink>

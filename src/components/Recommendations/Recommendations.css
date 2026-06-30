@@ -1,0 +1,13 @@
+.recommendations {
+  padding: 50px;
+}
+
+.recommendations h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.recommendations p {
+  color: #94a3b8;
+  margin-bottom: 30px;
+}

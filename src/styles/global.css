@@ -80,3 +80,101 @@ body.light .details-page,
 body.light .page {
   background: #f8fafc;
 }
+
+/* RESPONSIVIDADE GLOBAL */
+
+@media (max-width: 992px) {
+  .container {
+    padding: 0 24px;
+  }
+
+  nav {
+    gap: 18px;
+  }
+
+  .hero-content {
+    padding: 40px;
+  }
+
+  .hero-content h1 {
+    font-size: 2.8rem;
+  }
+
+  .search {
+    width: 90%;
+    flex-direction: column;
+    margin-top: -40px;
+  }
+
+  .movie-row {
+    padding: 0 24px;
+  }
+
+  .movie-grid {
+    grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+    padding: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    height: auto;
+  }
+
+  .container {
+    flex-direction: column;
+    gap: 18px;
+    padding: 18px;
+  }
+
+  nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+  }
+
+  .hero-banner {
+    height: 75vh;
+  }
+
+  .hero-content {
+    padding: 30px;
+  }
+
+  .hero-content h1 {
+    font-size: 2.2rem;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+  }
+
+  .page-header h1,
+  .favorites-hero h1,
+  .dashboard-header h1 {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo span {
+    font-size: 1.2rem;
+  }
+
+  nav a {
+    font-size: .9rem;
+  }
+
+  .hero-content h1 {
+    font-size: 1.8rem;
+  }
+
+  .movie-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .row-card {
+    min-width: 190px;
+    max-width: 190px;
+  }
+}

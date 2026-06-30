@@ -1,0 +1,26 @@
+.continue-section {
+  padding: 40px 50px;
+}
+
+.continue-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.continue-header h2 {
+  font-size: 2rem;
+}
+
+.continue-header button {
+  border: none;
+  border-radius: 30px;
+  padding: 12px 22px;
+  background: rgba(255,255,255,.12);
+  color: white;
+}
+
+.continue-header button:hover {
+  background: #ef4444;
+}

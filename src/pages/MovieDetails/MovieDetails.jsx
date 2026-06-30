@@ -19,86 +19,84 @@ import {
 } from "../../services/api";
 
 import { useFavorites } from "../../context/FavoritesContext";
+import { useWatchHistory } from "../../context/WatchHistoryContext";
 
 import Loading from "../../components/Loading/Loading";
 import Trailer from "../../components/Trailer/Trailer";
+import Cast from "../../components/Cast/Cast";
+import SimilarMovies from "../../components/SimilarMovies/SimilarMovies";
 
 import "./MovieDetails.css";
 
-import Cast from "../../components/Cast/Cast";
-
-import SimilarMovies from "../../components/SimilarMovies/SimilarMovies";
-
 function MovieDetails() {
   const { id } = useParams();
-
   const navigate = useNavigate();
-
   const location = useLocation();
 
   const isMovie = location.pathname.startsWith("/movie");
 
   const [movie, setMovie] = useState(null);
-
   const [loading, setLoading] = useState(true);
 
   const { toggleFavorite, isFavorite } = useFavorites();
+  const { addToHistory } = useWatchHistory();
 
   useEffect(() => {
-    loadMovie();
-  }, [id]);
+    async function loadMovie() {
+      try {
+        setLoading(true);
 
-  async function loadMovie() {
-    try {
-      setLoading(true);
+        const data = isMovie
+          ? await getMovieDetails(id)
+          : await getSeriesDetails(id);
 
-      const data = isMovie
-        ? await getMovieDetails(id)
-        : await getSeriesDetails(id);
-
-      setMovie(data);
-    } catch (error) {
-      console.error(error);
-    } finally {
-      setLoading(false);
+        setMovie(data);
+      } catch (error) {
+        console.error(error);
+      } finally {
+        setLoading(false);
+      }
     }
-  }
+
+    loadMovie();
+  }, [id, isMovie]);
+
+  useEffect(() => {
+    if (movie) {
+      addToHistory(movie);
+    }
+  }, [movie]);
 
   if (loading) return <Loading />;
 
   if (!movie) {
     return (
-      <main className="details-page">
+      <main className="details-page details-error">
         <h2>Conteúdo não encontrado.</h2>
+        <button onClick={() => navigate("/")}>Voltar para Home</button>
       </main>
     );
   }
 
   const title = movie.title || movie.name;
-
-  const release =
-    movie.release_date ||
-    movie.first_air_date ||
-    "Não informado";
+  const release = movie.release_date || movie.first_air_date || "Não informado";
 
   const runtime = movie.runtime
-    ? `${movie.runtime} min`
+    ? `${movie.runtime} minutos`
     : `${movie.number_of_seasons || "-"} Temporadas`;
 
   return (
     <main className="details-page">
-      {/* BACKDROP */}
-
       <div
         className="details-backdrop"
         style={{
-          backgroundImage: `url(https://image.tmdb.org/t/p/original${movie.backdrop_path})`,
+          backgroundImage: movie.backdrop_path
+            ? `url(https://image.tmdb.org/t/p/original${movie.backdrop_path})`
+            : "none",
         }}
       >
         <div className="details-overlay"></div>
       </div>
-
-      {/* CONTAINER */}
 
       <motion.section
         className="details-container"
@@ -106,50 +104,37 @@ function MovieDetails() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7 }}
       >
-        {/* POSTER */}
-
         <div className="poster-area">
           <img
             loading="lazy"
-            src={`${IMAGE_URL}${movie.poster_path}`}
+            src={
+              movie.poster_path
+                ? `${IMAGE_URL}${movie.poster_path}`
+                : "https://via.placeholder.com/500x750?text=Sem+Imagem"
+            }
             alt={title}
             className="details-poster"
           />
         </div>
 
-        {/* INFORMAÇÕES */}
-
         <div className="details-info">
-          <button
-            className="back-button"
-            onClick={() => navigate(-1)}
-          >
+          <button className="back-button" onClick={() => navigate(-1)}>
             <FaArrowLeft />
-
             Voltar
           </button>
 
           <h1>{title}</h1>
 
-          {/* NOTA */}
-
           <div className="movie-rating">
             <FaStar />
-
-            <span>{movie.vote_average.toFixed(1)}</span>
+            <span>{movie.vote_average?.toFixed(1) || "0.0"}</span>
           </div>
-
-          {/* GÊNEROS */}
 
           <div className="genres">
-            {movie.genres.map((genre) => (
-              <span key={genre.id}>
-                {genre.name}
-              </span>
+            {movie.genres?.map((genre) => (
+              <span key={genre.id}>{genre.name}</span>
             ))}
           </div>
-
-          {/* INFORMAÇÕES */}
 
           <div className="movie-extra">
             <span>
@@ -164,40 +149,15 @@ function MovieDetails() {
 
             <span>
               <FaGlobe />
-              {movie.original_language.toUpperCase()}
+              {movie.original_language?.toUpperCase()}
             </span>
           </div>
 
-          {/* SINOPSE */}
-
           <h2>Sinopse</h2>
 
-          <p>{movie.overview}</p>
+          <p>{movie.overview || "Sinopse não disponível."}</p>
 
-          {/* TRAILER */}
-
-          <Trailer
-            id={movie.id}
-            isMovie={isMovie}
-          />
-
-            <Cast
-
-            id={movie.id}
-
-            isMovie={isMovie}
-
-            />
-
-            <SimilarMovies
-
-            id={movie.id}
-
-            isMovie={isMovie}
-
-            />
-
-          {/* FAVORITOS */}
+          <Trailer id={movie.id} isMovie={isMovie} />
 
           <button
             className="favorite-button"
@@ -206,19 +166,23 @@ function MovieDetails() {
             {isFavorite(movie.id) ? (
               <>
                 <FaHeart />
-
                 Remover dos Favoritos
               </>
             ) : (
               <>
                 <FaRegHeart />
-
                 Adicionar aos Favoritos
               </>
             )}
           </button>
         </div>
       </motion.section>
+
+      <section className="details-sections">
+        <Cast id={movie.id} isMovie={isMovie} />
+
+        <SimilarMovies id={movie.id} isMovie={isMovie} />
+      </section>
     </main>
   );
 }

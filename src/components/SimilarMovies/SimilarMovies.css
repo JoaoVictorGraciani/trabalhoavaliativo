@@ -1,15 +1,36 @@
-.similar{
-
-    margin-top:80px;
-
+.similar {
+  margin-top: 90px;
 }
 
-.similar h2{
+.similar h2 {
+  font-size: 2rem;
+  color: white;
+  margin-bottom: 30px;
+}
 
-    font-size:2rem;
+.similar .movie-grid {
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  padding: 10px 5px 30px;
+  margin: 0;
+  max-width: 100%;
+}
 
-    color:white;
+.similar .movie-card {
+  min-width: 230px;
+  max-width: 230px;
+}
 
-    margin-bottom:30px;
+.similar .movie-poster {
+  height: 340px;
+}
 
+.similar .movie-grid::-webkit-scrollbar {
+  height: 8px;
+}
+
+.similar .movie-grid::-webkit-scrollbar-thumb {
+  background: #2563eb;
+  border-radius: 20px;
 }

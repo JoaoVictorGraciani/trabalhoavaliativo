@@ -1,28 +1,52 @@
 import { createContext, useContext, useEffect, useState } from "react";
 
-const ThemeContext = createContext();
+const FavoritesContext = createContext(null);
 
-export function ThemeProvider({ children }) {
-  const [theme, setTheme] = useState(() => {
-    return localStorage.getItem("movieverse_theme") || "dark";
+export function FavoritesProvider({ children }) {
+  const [favorites, setFavorites] = useState(() => {
+    try {
+      const saved = localStorage.getItem("movieverse_favorites");
+      return saved ? JSON.parse(saved) : [];
+    } catch {
+      return [];
+    }
   });
 
   useEffect(() => {
-    document.body.className = theme;
-    localStorage.setItem("movieverse_theme", theme);
-  }, [theme]);
+    localStorage.setItem("movieverse_favorites", JSON.stringify(favorites));
+  }, [favorites]);
 
-  function toggleTheme() {
-    setTheme((current) => (current === "dark" ? "light" : "dark"));
+  function toggleFavorite(item) {
+    if (!item || !item.id) return;
+
+    setFavorites((current) => {
+      const exists = current.some((favorite) => favorite.id === item.id);
+
+      if (exists) {
+        return current.filter((favorite) => favorite.id !== item.id);
+      }
+
+      return [item, ...current];
+    });
+  }
+
+  function isFavorite(id) {
+    return favorites.some((item) => item.id === id);
   }
 
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+    <FavoritesContext.Provider value={{ favorites, toggleFavorite, isFavorite }}>
       {children}
-    </ThemeContext.Provider>
+    </FavoritesContext.Provider>
   );
 }
 
-export function useTheme() {
-  return useContext(ThemeContext);
+export function useFavorites() {
+  const context = useContext(FavoritesContext);
+
+  if (!context) {
+    throw new Error("useFavorites deve ser usado dentro de FavoritesProvider");
+  }
+
+  return context;
 }

@@ -1,235 +1,54 @@
-/* ===========================================
-   CAST SECTION
-=========================================== */
-
 .cast-section {
-
-    margin-top:80px;
-
+  margin-top: 80px;
 }
 
-.cast-section h2{
-
-    font-size:2rem;
-
-    margin-bottom:30px;
-
-    color:white;
-
+.cast-section h2 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: white;
 }
 
-/* ===========================================
-   CREW
-=========================================== */
-
-.crew-info{
-
-    display:flex;
-
-    gap:40px;
-
-    flex-wrap:wrap;
-
-    margin-bottom:40px;
-
-    padding:20px 25px;
-
-    background:rgba(255,255,255,.04);
-
-    border:1px solid rgba(255,255,255,.08);
-
-    border-radius:18px;
-
-    backdrop-filter:blur(12px);
-
+.crew-info {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+  padding: 20px 25px;
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 18px;
 }
 
-.crew-info p{
-
-    color:#CBD5E1;
-
-    font-size:1rem;
-
+.cast-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 220px);
+  gap: 30px;
 }
 
-.crew-info strong{
-
-    color:white;
-
+.cast-card {
+  width: 220px;
+  background: #111827;
+  border-radius: 18px;
+  overflow: hidden;
+  transition: .35s;
 }
 
-/* ===========================================
-   GRID
-=========================================== */
-
-.cast-grid{
-
-    display:grid;
-
-    grid-template-columns:repeat(auto-fill,minmax(180px,1fr));
-
-    gap:30px;
-
+.cast-card:hover {
+  transform: translateY(-8px);
 }
 
-/* ===========================================
-   CARD
-=========================================== */
-
-.cast-card{
-
-    background:#111827;
-
-    border-radius:18px;
-
-    overflow:hidden;
-
-    transition:.35s;
-
-    box-shadow:
-
-        0 12px 30px rgba(0,0,0,.35);
-
+.cast-card img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
 }
 
-.cast-card:hover{
-
-    transform:translateY(-10px);
-
-    box-shadow:
-
-        0 20px 45px rgba(37,99,235,.30);
-
+.cast-card h3 {
+  padding: 16px 16px 6px;
+  font-size: 1rem;
 }
 
-/* ===========================================
-   IMAGE
-=========================================== */
-
-.cast-card img{
-
-    width:100%;
-
-    height:260px;
-
-    object-fit:cover;
-
-}
-
-/* ===========================================
-   INFO
-=========================================== */
-
-.cast-card h3{
-
-    padding:18px 18px 8px;
-
-    font-size:1rem;
-
-    color:white;
-
-}
-
-.cast-card p{
-
-    padding:0 18px 20px;
-
-    color:#94A3B8;
-
-    font-size:.92rem;
-
-    min-height:45px;
-
-}
-
-/* ===========================================
-   HOVER
-=========================================== */
-
-.cast-card img{
-
-    transition:.35s;
-
-}
-
-.cast-card:hover img{
-
-    transform:scale(1.05);
-
-}
-
-/* ===========================================
-   SCROLL ANIMATION
-=========================================== */
-
-@keyframes fadeCast{
-
-    from{
-
-        opacity:0;
-
-        transform:translateY(30px);
-
-    }
-
-    to{
-
-        opacity:1;
-
-        transform:translateY(0);
-
-    }
-
-}
-
-.cast-card{
-
-    animation:fadeCast .6s ease;
-
-}
-
-/* ===========================================
-   RESPONSIVE
-=========================================== */
-
-@media(max-width:992px){
-
-    .cast-grid{
-
-        grid-template-columns:
-        repeat(auto-fill,minmax(150px,1fr));
-
-    }
-
-}
-
-@media(max-width:768px){
-
-    .crew-info{
-
-        flex-direction:column;
-
-        gap:15px;
-
-    }
-
-    .cast-grid{
-
-        grid-template-columns:
-        repeat(2,1fr);
-
-        gap:20px;
-
-    }
-
-}
-
-@media(max-width:500px){
-
-    .cast-grid{
-
-        grid-template-columns:1fr;
-
-    }
-
+.cast-card p {
+  padding: 0 16px 18px;
+  color: #94a3b8;
 }
