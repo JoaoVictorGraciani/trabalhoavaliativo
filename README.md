@@ -333,7 +333,7 @@ Projeto desenvolvido para estudos de React, consumo de APIs e desenvolvimento Fr
 
 GitHub:
 
-https://github.com/SEU-USUARIO
+https://github.com/JoaoVictorGraciani
 
 LinkedIn:
 
